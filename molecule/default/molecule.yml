@@ -1,0 +1,29 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    box: ${VAGRANT_DEFAULT_BOX:-generic/rhel7}
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  inventory:
+    host_vars: 
+      instance: 
+        http_proxy_protocol: http
+        http_proxy_hostname: bcpxy.nycnet
+        http_proxy_port: 8080
+        https_proxy_protocol: http
+        https_proxy_hostname: bcpxy.nycnet
+        https_proxy_port: 8080
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

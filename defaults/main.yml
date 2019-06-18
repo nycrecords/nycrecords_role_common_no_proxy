@@ -1,0 +1,13 @@
+---
+# defaults file for nycrecords_role_common
+rhsn_system_name: "nycrecords_common_{{ '%Y-%m-%d %H:%M:%S' | strftime(ansible_date_time.epoch) }}"
+rhsn_username: 
+rhsn_password:
+
+http_proxy_protocol: http
+http_proxy_hostname:
+http_proxy_port: 80
+https_proxy_protocol: https
+https_proxy_hostname:
+https_proxy_port: 443
+no_proxy: "localhost,127.0.0.1,::1"

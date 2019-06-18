@@ -1,0 +1,13 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+molecule = {extras = ["ec2"],version = "*"}
+ansible = "<2.8"
+
+[requires]
+python_version = "2.7"
