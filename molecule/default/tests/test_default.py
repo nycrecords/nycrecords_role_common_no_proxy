@@ -42,6 +42,5 @@ def test_rhsm_subscription_current(host):
 def test_rhscl_repos_enabled(host):
     cmd = host.run("sudo subscription-manager repos --list-enabled")
 
-    print(cmd.stdout)
     assert "rhel-server-rhscl-7-rpms" in cmd.stdout
     assert "rhel-7-server-optional-rpms" in cmd.stdout
