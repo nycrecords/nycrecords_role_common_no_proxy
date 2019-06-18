@@ -32,3 +32,16 @@ def test_no_proxy_set(host):
 
     assert cmd.stdout.strip() == "no_proxy=localhost,127.0.0.1,::1"
 
+
+def test_rhsm_subscription_current(host):
+    cmd = host.run("sudo subscription-manager status")
+
+    assert "Overall Status: Current" in cmd.stdout
+
+
+def test_rhscl_repos_enabled(host):
+    cmd = host.run("sudo subscription-manager repos --list-enabled")
+
+    print(cmd.stdout)
+    assert "rhel-server-rhscl-7-rpms" in cmd.stdout
+    assert "rhel-7-server-optional-rpms" in cmd.stdout

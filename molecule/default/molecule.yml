@@ -23,6 +23,8 @@ provisioner:
         https_proxy_protocol: http
         https_proxy_hostname: bcpxy.nycnet
         https_proxy_port: 8080
+        rhsub_username: ${RHSM_USERNAME}
+        rhsub_password: ${RHSM_PASSWORD}
 verifier:
   name: testinfra
   lint:

@@ -4,3 +4,16 @@
   template: 
     src: templates/proxy.sh.j2
     dest: /etc/profile.d/proxy.sh
+
+- name: Login to RedHat Subscription
+  redhat_subscription:
+    state: present
+    username: "{{ rhsub_username }}"
+    password: "{{ rhsub_password }}"
+    auto_attach: true
+
+- name: Subscribe to RHSM Repos
+  rhsm_repository: 
+    name: "{{ item }}"
+    state: enabled
+  with_items: "{{ repos }}"
