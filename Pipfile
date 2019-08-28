@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-molecule = {extras = ["ec2"],version = "*"}
+molecule = {extras = ["vagrant"],version = "*"}
 ansible = "<2.8"
 
 [requires]

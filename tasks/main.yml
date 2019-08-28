@@ -1,10 +1,5 @@
 ---
 # tasks file for nycrecords_role_common
-- name: Insert proxy profile configuration
-  template: 
-    src: templates/proxy.sh.j2
-    dest: /etc/profile.d/proxy.sh
-
 - name: Login to RedHat Subscription
   redhat_subscription:
     state: present
@@ -13,7 +8,7 @@
     auto_attach: true
 
 - name: Subscribe to RHSM Repos
-  rhsm_repository: 
+  rhsm_repository:
     name: "{{ item }}"
     state: enabled
   with_items: "{{ repos }}"
