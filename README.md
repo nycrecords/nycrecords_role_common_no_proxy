@@ -1,3 +1,9 @@
+[![License](https://img.shields.io/badge/license-Apache-2.0-green.svg?style=flat)](https://raw.githubusercontent.com/nycrecords/nycrecords_role_common_no_proxy/master/LICENSE)
+[![Build Status](https://travis-ci.org/nycrecords/nycrecords_role_common_no_proxy.svg?branch=master)](https://travis-ci.org/nycrecords/nycrecords_role_common_no_proxy)
+[![Galaxy](https://img.shields.io/badge/galaxy-joelbcastillo.nycrecords_role_common_no_proxy-blue.svg)](https://galaxy.ansible.com/lean_delivery/nginx)
+![Ansible](https://img.shields.io/ansible/role/d/43008.svg)
+![Ansible](https://img.shields.io/badge/dynamic/json.svg?label=min_ansible_version&url=https%3A%2F%2Fgalaxy.ansible.com%2Fapi%2Fv1%2Froles%2F43008%2F&query=$.min_ansible_version)
+
 NYCRecords Common (No-Proxy)
 =========
 

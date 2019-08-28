@@ -1,0 +1,35 @@
+---
+dist: xenial
+sudo: false
+
+language: python
+python:
+  - "3.7.4"
+
+env:
+  - EC2_REGION=us-east-2 BOTO_CONFIG="/dev/null"
+
+install:
+  - pip install pipenv
+  - pipenv install --dev
+  - ansible --version
+  - ansible-lint --version
+
+  # install AWS related packages
+  - pipenv run pip install --upgrade boto
+  - pipenv run pip install --upgrade boto3
+  - pipenv run pip install --upgrade awscli
+  - pipenv run pip install --upgrade testinfra
+
+  # configure AWS CLI
+  - aws configure set aws_access_key_id $AWS_ACCESS_KEY
+  - aws configure set aws_secret_access_key $AWS_SECRET_KEY
+  - aws configure set default.region $EC2_REGION
+  
+  # show AWS CLI config
+  - aws configure list
+
+script:
+  - molecule --debug test -s ec2
+
+notifications:

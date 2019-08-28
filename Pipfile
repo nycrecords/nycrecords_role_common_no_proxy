@@ -5,13 +5,13 @@ verify_ssl = true
 
 [dev-packages]
 black = "*"
+molecule = {extras = ["ec2", "vagrant"],version = "*"}
+ansible = "*"
 
 [packages]
-molecule = {extras = ["vagrant"],version = "*"}
-ansible = "<2.8"
 
 [requires]
-python_version = "3.7.4"
+python_version = "3.7"
 
 [pipenv]
 allow_prereleases = true
