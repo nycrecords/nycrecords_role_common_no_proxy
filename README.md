@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/license-Apache-2.0-green.svg?style=flat)](https://raw.githubusercontent.com/nycrecords/nycrecords_role_common_no_proxy/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Apache2.0-green.svg?style=flat)](https://raw.githubusercontent.com/nycrecords/nycrecords_role_common_no_proxy/master/LICENSE) 
 [![Build Status](https://travis-ci.org/nycrecords/nycrecords_role_common_no_proxy.svg?branch=master)](https://travis-ci.org/nycrecords/nycrecords_role_common_no_proxy)
 [![Galaxy](https://img.shields.io/badge/galaxy-joelbcastillo.nycrecords_role_common_no_proxy-blue.svg)](https://galaxy.ansible.com/lean_delivery/nginx)
 ![Ansible](https://img.shields.io/ansible/role/d/43008.svg)
