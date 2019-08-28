@@ -123,3 +123,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 *.retry
+
+# Visual Studio Code
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
