@@ -27,16 +27,16 @@ Available variables are listed below, along with default values (see defaults/ma
 repos:
     - rhel-server-rhscl-{{ ansible_distribution_major_version }}-rpms
     - rhel-{{ ansible_distribution_major_version }}-server-optional-rpms
-``` 
+```  
 The repositories to subscribe to from RedHat. You can view a list of these by running the following command on a registered server: `subscription-manager repos --list`
 
-`rhsub_system_name: nycrecords_common_{{ '%Y%m%d-%H%M%S' | strftime(ansible_date_time.epoch) }}`
+`rhsub_system_name: nycrecords_common_{{ '%Y%m%d-%H%M%S' | strftime(ansible_date_time.epoch) }}`  
 Defines the name used to register the machine with RedHat Subscription Management. Default to nycrecords_common_YYYYmmdd-HHMMSS (e.g. nycrecords_common_20190102-030405)
 
-`rhsub_username: ${RHSM_USERNAME}`
+`rhsub_username: ${RHSM_USERNAME}`  
 The username for your RedHat Subscription
 
-`rhsub_password: ${RHSM_PASSWORD}`
+`rhsub_password: ${RHSM_PASSWORD}`  
 The username for your RedHat Subscription
 
 Dependencies
