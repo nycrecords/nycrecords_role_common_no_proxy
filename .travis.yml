@@ -10,18 +10,25 @@ env:
   - secure: Xvb7goOWWSISKhFllfGshN7+W37eGk+wQvryQ/gf8WP9h7g2ktmVQ0CG8k7jvNDKaZ63XQCS02VqrlP6oF8+ox8J54mi8gpb+h0UnaPODgnTN4oTk+UaqgDw2nnp/aUfNAZHDXtdyTzYvUP5NUknN77T6JyoLW7T/K+lbwyOB9dLikxO0iltK3eYhgVbMFyzTLnFZAwknzNqiCbjWcTl+BW9Ty2k+kYQ3R/JiFMwu6Cv06Z9Gf2Wma2MnyiIKbk/K75Im1q6+th7di6cTYOX0A4y6vMlC4AZaerTvLH59rOkDmT0sI8mt1r6YhwcHb4+jy7ByhTiMQ2udBu0CNNUjZIQAs/VghJUewCVu7k/zPNioRrqbt/V9M5Pvqet2KGw/NFV6yOYIOq75MmBwoVPS/4Msgb0tp9OPcU5NoGuRyfiSmnTYOR8IWfysqVsz1x8hiK8sLNJUluFCABFbWgEv8+sK2KN2sX5bmMxHWw6HxtNM2KqZCb+7j1xjlAp9cxKuLgUXPPMhSuqR3Zvp1oqXvtodxFA+m2b9qS1fXOBoIkHwFknMOFFZMshSk3E2KvGJ+3vtzDPNlYi4kisjCL3tE7cPSNk8+eP3GiZGhYxFZX5D2hOFxLeDfkSJltAVboL/+UGDy8izian4u7JUulDlgdEE6OZ8aNSH+ssFEJBXI8=
   - secure: L3InQ7S8MJOyHxsDIhrM7PKgav6YBz/v7ZYp232F9S+EUejm5t1xqV/QD/4bYlGkoxGSQWUGsa5cre2a67gkIBK1X3clGslqz4nZSd8IuF4ct6a8n07dVmSGOkqVKjAwQQdkTMA4K9kmNpMQZPlJBDQA0aDFpR1BlPOltguxLyYBEwj0Hngaw6T2EUxJQRmKl/pfYTgo7qvDQq8/SEWzIC/okit/jU8FKu+s94oSg3EpQikkDnIWNIt/cd56earWt1icPCzKz6Q9RawVBqLBIGfKhRwhDqcTOu/6R1P7lkJRgR1uavcd5+la9wkyao6mQS68CyngKBIL4hjkQKlP30YC4PmpBO6DL5uck8J19oFEkLHD+oIIoHge2JrFVHN+dZ/tfs1Qy0LqM6n/3zF30NkXvhAtPChswONFYj+1y75WXnCrfxC1AFVhTHxgBErjUtDNZR9aAWQHGbJr8KUUmtU4ruQSf9fQPlGNhjN12tFiDObV/FEUla5erP205I3X19LbRfQH6z0r/5zDsA5c5Yf8h+cgMI8ndXw0rdC0CiPoiLeuwWzIwi3PQXXa7EkNIP3z7FNE1AN2q5cLUKunhYrwFgq+Q6KPlCrIil8d78PFaF4nTGFWiJMUH2BdQBoZ4PwXFjgBcVdhqkGAojRFGVSMBD80II6fA9Q/BTWnJds=
 install:
-- pip install pipenv
-- pipenv install --dev
-- ansible --version
-- ansible-lint --version
-- pipenv run pip install --upgrade boto
-- pipenv run pip install --upgrade boto3
-- pipenv run pip install --upgrade awscli
-- pipenv run pip install --upgrade testinfra
-- aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-- aws configure set aws_secret_access_key $AWS_SECRET_KEY
-- aws configure set default.region $EC2_REGION
-- aws configure list
+  - pip install pipenv
+  - pipenv install --dev
+  - ansible --version
+  - ansible-lint --version
+
+  # install AWS related packages
+  - pipenv run pip install --upgrade boto
+  - pipenv run pip install --upgrade boto3
+  - pipenv run pip install --upgrade awscli
+  - pipenv run pip install --upgrade testinfra
+
+  # configure AWS CLI
+  - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+  - aws configure set aws_secret_access_key $AWS_SECRET_KEY
+  - aws configure set default.region $EC2_REGION
+
+  # show AWS CLI config
+  - aws configure list
+
 script:
 - molecule --debug lint
 - molecule --debug create --scenario-name ec2
