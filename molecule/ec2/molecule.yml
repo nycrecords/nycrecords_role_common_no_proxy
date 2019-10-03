@@ -12,7 +12,7 @@ platforms:
   - name: instance
     image: ami-01a834fd83ae239ff
     instance_type: t2.micro
-    vpc_subnet_id: subnet-b02a32fa
+    vpc_subnet_id: subnet-0119f731caf79aa52
 provisioner:
   name: ansible
   lint:
