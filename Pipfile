@@ -4,10 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-
-[packages]
 molecule = {extras = ["ec2", "vagrant"],version = "*"}
 ansible = "<2.8"
 
+[packages]
+
 [requires]
-python_version = "2.7"
+python_version = "3.7"
